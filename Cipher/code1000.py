@@ -21,17 +21,6 @@ def caesarchiper(msg):
         out = out + chip
     return out
 
-def decaesarchiper(msg):
-    out = ""
-    for x in msg:
-        getindex = letindex[x]
-        if getindex - 2 >= 0:
-            chip = indexlet[getindex-2]
-        elif getindex - 2 < 0:
-            chip = indexlet[getindex-2+27]
-        out = out + chip
-    return out
-
 def changevocal(msg):
     out = ""
     for x in msg:
@@ -41,6 +30,28 @@ def changevocal(msg):
             x = "u"  
         
         out = out + x
+    return out
+
+def changedoublechar(msg):
+    out = ""
+    for x in msg:
+        if x == "a":
+            x = "i"
+        elif x == "o":
+            x = "u"  
+        
+        out = out + x
+    return out
+
+def decaesarchiper(msg):
+    out = ""
+    for x in msg:
+        getindex = letindex[x]
+        if getindex - 2 >= 0:
+            chip = indexlet[getindex-2]
+        elif getindex - 2 < 0:
+            chip = indexlet[getindex-2+27]
+        out = out + chip
     return out
 
 def dechangevocal(msg):
@@ -53,6 +64,12 @@ def dechangevocal(msg):
         
         out = out + x
     return out
+
+def shorting(msg):
+    out = ""
+    letter = []
+    for x in msg:
+        pass 
 
 msg = input(">>>")
 chipered=caesarchiper(changevocal(msg)) 
